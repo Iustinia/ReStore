@@ -1,3 +1,11 @@
 /API/bin
 /API/obj
 /client/node_modules
+.vscode/.gitignore
+API/bin/Debug/net8.0/API.dll
+API/bin/Debug/net8.0/API.exe
+API/obj/Debug/net8.0/API.AssemblyInfo.cs
+API/obj/Debug/net8.0/API.AssemblyInfoInputs.cache
+API/obj/Debug/net8.0/API.dll
+API/obj/Debug/net8.0/ref/API.dll
+API/obj/Debug/net8.0/refint/API.dll
