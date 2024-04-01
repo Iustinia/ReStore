@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace API.Entities;
 
 public class Product
@@ -12,7 +14,6 @@ public class Product
     public string PictureUrl{get; set;}
 
      public string  Type {get; set;} 
-
     public string Brand{get; set;}
 
     public int QuantityInStock{get; set;}
