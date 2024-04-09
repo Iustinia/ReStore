@@ -15,6 +15,7 @@ public class StoreContext : IdentityDbContext<User,Role,int>
 
     public DbSet<Basket>Baskets{get;set;}
     public DbSet<Order>Orders{get;set;}
+    public DbSet<Test> Tests {get; set;}
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

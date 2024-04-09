@@ -77,6 +77,7 @@ public class OrdersController : BaseApiController
             ShippingAddress = orderDto.ShippingAddress,
             Subtotal = subtotal,
             DeliveryFee = deliveryFee,
+            PaymentIntentId = basket.PaymentIntentId
         };
 
         _context.Orders.Add(order);
@@ -85,8 +86,9 @@ public class OrdersController : BaseApiController
         if (orderDto.SaveAddress)
         {
             var user = await _context.Users.
-                 Include(a => a.Address)
+                Include(a => a.Address)
                 .FirstOrDefaultAsync(x => x.UserName == User.Identity.Name);
+
             var address = new UserAddress
             {
                 FullName = orderDto.ShippingAddress.FullName,

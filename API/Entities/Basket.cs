@@ -14,6 +14,8 @@ public class Basket
     public string BuyerId{get;set;}
 
     public List<BasketItem>Items{get;set;} = new List<BasketItem>();
+    public string PaymentIntentId{get;set;}
+    public string ClientSecret{get;set;}    
 
     public void AddItem(Product product,int quantity)
     {
