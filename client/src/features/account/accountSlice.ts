@@ -15,7 +15,7 @@ const initialState:AccountState={
 }
 
 export const signInUser = createAsyncThunk<User,FieldValues>(
-    'accoubt/signInUser',
+    'account/signInUser',
     async(data,thunkAPI)=>{
         try{
            const userDto = await agent.Account.login(data);

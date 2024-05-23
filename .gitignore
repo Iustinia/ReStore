@@ -9,3 +9,6 @@ API/obj/Debug/net8.0/API.AssemblyInfoInputs.cache
 API/obj/Debug/net8.0/API.dll
 API/obj/Debug/net8.0/ref/API.dll
 API/obj/Debug/net8.0/refint/API.dll
+API/.dockerignore
+API/Dockerfile
+/API/wwwroot/assets

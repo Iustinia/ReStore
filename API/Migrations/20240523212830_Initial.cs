@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace API.Data.Migrations
+namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class OrderEntityAdded : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -60,7 +60,9 @@ namespace API.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    BuyerId = table.Column<string>(type: "TEXT", nullable: true)
+                    BuyerId = table.Column<string>(type: "TEXT", nullable: true),
+                    PaymentIntentId = table.Column<string>(type: "TEXT", nullable: true),
+                    ClientSecret = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,7 +86,8 @@ namespace API.Data.Migrations
                     OrderDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Subtotal = table.Column<long>(type: "INTEGER", nullable: false),
                     DeliveryFee = table.Column<long>(type: "INTEGER", nullable: false),
-                    OrderStatus = table.Column<int>(type: "INTEGER", nullable: false)
+                    OrderStatus = table.Column<int>(type: "INTEGER", nullable: false),
+                    PaymentIntentId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -108,6 +111,20 @@ namespace API.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FirstOrDefault = table.Column<int>(type: "INTEGER", nullable: false),
+                    Second = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tests", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,6 +392,9 @@ namespace API.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "OrderItem");
+
+            migrationBuilder.DropTable(
+                name: "Tests");
 
             migrationBuilder.DropTable(
                 name: "UserAddress");
